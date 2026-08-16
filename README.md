@@ -6,25 +6,25 @@ AlphaShrines is a lightweight C++ mod for the Steam release of **Cube World** de
 
 In the Steam release, Shrine of Life activation primarily supports fast travel and death can return the player to a previously activated shrine. AlphaShrines changes the respawn selection path so a death is resolved against nearby Shrine of Life spawn records, recreating Cube World's Alpha behavior.
 
-This project intentionally changes only death respawn selection. It does not remove, replace, or alter the base game's Shrine of Life activation and fast-travel system.
+This project intentionally changes only death respawn selection. It does not remove, replace, or alter the base game's Shrine of Life activation and fast travel system.
 
 ## Features
 
-- Restores proximity-based Shrine of Life respawn selection.
-- Preserves the Steam release's existing Shrine of Life activation and fast-travel behavior.
+- Restores proximity based Shrine of Life respawn selection.
+- Preserves the Steam release's existing Shrine of Life activation and fast travel behavior.
 - Tracks native Shrine of Life spawn records as the world loads instead of relying on fixed map coordinates.
-- Uses the player's death location to select from shrines in the surrounding 3 x 3 world-cell area.
+- Uses the player's death location to select from shrines in the surrounding 3 x 3 world cell area.
 - Validates the expected Steam executable function prologues before installing any hook.
 
 ## How It Works
 
-This project hooks two internal Steam-runtime routines:
+This project hooks two internal Steam runtime routines:
 
-1. The spawn-record insertion path, where it identifies native `0x0C` Shrine of Life records emitted by the shrine-generation caller and caches their world positions.
+1. The spawn record insertion path, where it identifies native `0x0C` Shrine of Life records emitted by the shrine generation caller and caches their world positions.
 
 2. The respawn selection path, where it replaces the result with the locally selected Shrine of Life position.
 
-The selection logic follows the Alpha reversal's logic: it examines shrine records in the player’s current 256-block cell and its eight neighboring cells, sorts candidates by horizontal distance from the death position, and uses the Alpha ordering rule when multiple candidates are available.
+The selection logic follows the Alpha reversal's logic: it examines shrine records in the player’s current 256 block cell and its eight neighboring cells, sorts candidates by horizontal distance from the death position, and uses the Alpha ordering rule when multiple candidates are available.
 
 ## Requirements
 
@@ -39,7 +39,7 @@ The project is configured for **Release | x64**. It uses MSVC directly; CMake an
 1. Install Cube World Mod Loader.
 2. Copy `AlphaShrines.dll` into the loader's `Mods` directory.
 3. Start Cube World.
-4. Confirm the in-game chat message: `[AlphaShrines] Alpha logic restored.`
+4. Confirm the in game chat message: `[AlphaShrines] Alpha logic restored.`
 
 If the game build does not match the validated runtime signatures, AlphaShrines reports that the build was not recognized and does not install its hooks.
 
@@ -55,13 +55,13 @@ The repository includes CWSDK alongside the project. If you move it, update the 
 ## Acknowledgements
 
 - [CWSDK](https://github.com/coremaze/CWSDK) for the Cube World modding SDK.
-- [CubeWorld-Reversal](https://github.com/qad3n/CubeWorld-Reversal) for the Alpha behavior reference used during the respawn-selection reconstruction.
+- [CubeWorld-Reversal](https://github.com/qad3n/CubeWorld-Reversal) for the Alpha behavior reference used during the respawn selection reconstruction.
 
 ## License
 
 AlphaShrines original source code is licensed under the [MIT License](LICENSE).
 
-CWSDK is a third-party dependency by coremaze. It is included solely for build convenience and is not covered, relicensed, or otherwise affected by AlphaShrines' MIT License. CWSDK remains subject to its original authorship and any applicable terms.
+CWSDK is a third party dependency by coremaze. It is included solely for build convenience and is not covered, relicensed, or otherwise affected by AlphaShrines' MIT License. CWSDK remains subject to its original authorship and any applicable terms.
 
 ## Disclaimer
 
