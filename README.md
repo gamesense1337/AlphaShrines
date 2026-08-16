@@ -59,7 +59,7 @@ The repository includes CWSDK alongside the project. If you move it, update the 
 
 ## License
 
-AlphaShrines' original source code is licensed under the [MIT License](LICENSE).
+AlphaShrines original source code is licensed under the [MIT License](LICENSE).
 
 CWSDK is a third-party dependency by coremaze. It is included solely for build convenience and is not covered, relicensed, or otherwise affected by AlphaShrines' MIT License. CWSDK remains subject to its original authorship and any applicable terms.
 
