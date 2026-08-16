@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{2D3A7B50-6AF1-4A0B-8B9A-D29744F4F31F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>AlphaShrines</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+
+  <PropertyGroup Label="UserMacros">
+    <!-- Change only this value when CWSDK is outside the sibling folder. -->
+    <CWSDKRoot>$(ProjectDir)CWSDK</CWSDKRoot>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>AlphaShrines</TargetName>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;NOMINMAX;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(CWSDKRoot);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemGroup>
+    <ClCompile Include="src\AlphaShrines.cpp" />
+    <!-- Build CWSDK directly into this DLL; no CMake or separate .lib project. -->
+    <ClCompile Include="$(CWSDKRoot)\cwsdk.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\common\BytesIO.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\common\ColorRGB.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\common\math.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\common\Matrix4.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\common\RGBA.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\common\Vector2.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\common\Vector3.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\AdaptionWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\AI.cpp" />
+    <!-- CWSDK's BaseWidget.cpp contains duplicate ChatWidget::PrintMessage
+         definitions. ChatWidget.cpp is the complete implementation. -->
+    <ClCompile Include="$(CWSDKRoot)\cube\Block.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\BlockProperties.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\CharacterPreviewWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\CharacterStyleWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\CharacterWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\ChatWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Client.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Connection.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Controls.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\ControlsWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Creature.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\cube.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Database.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\EnchantWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Equipment.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Field.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\FormulaDetailsWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Game.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\GUI.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\HelpWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Host.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Interaction.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\InventoryWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Item.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\ItemStack.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\MapOverlayWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\MultiplayerWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Music.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Options.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\OptionsWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\PreviewWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Projectile.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\QuestionWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\ResolutionInfo.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\ServerUpdates.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Speech.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\SpeechText.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\SpeechTextNode.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\SpeechWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Spirit.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Sprite.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\SpriteManager.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\SpriteWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\SystemWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\TextFX.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\VoxelWidget.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\World.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\WorldMap.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\XAudio2Engine.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\cube\Zone.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\gfx\Chunk.cpp" />
+    <!-- CWSDK's ChunkBuffer.cpp is a duplicate of Chunk.cpp and redefines
+         gfx::Chunk::Remesh. It has no ChunkBuffer implementation, so omit it. -->
+    <ClCompile Include="$(CWSDKRoot)\gfx\D3D11Graphics.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\gfx\D3D11IndexBuffer.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\gfx\D3D11Renderer.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\gfx\D3D11VertexBuffer.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\gfx\Graphics.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\gfx\IndexBuffer.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\gfx\Renderer.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\gfx\VertexBuffer.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\msvc\_Thrd_t.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\Array.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\Attribute.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\ContinuousAttribute.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\D3D11Engine.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\DiscreteAttribute.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\Display.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\Engine.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\FontEngine.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\Keyable.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\Matrix.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\NamedObject.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\Node.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\Object.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\ObjectManager.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\ScalableFont.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\Transformation.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\Vector.cpp" />
+    <ClCompile Include="$(CWSDKRoot)\plasma\Widget.cpp" />
+  </ItemGroup>
+
+  <Target Name="VerifyCWSDK" BeforeTargets="PrepareForBuild">
+    <Error Condition="!Exists('$(CWSDKRoot)\cwsdk.h')" Text="CWSDK was not found at '$(CWSDKRoot)'. The included CWSDK folder must remain beside AlphaShrines.vcxproj, or edit the CWSDKRoot property." />
+  </Target>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

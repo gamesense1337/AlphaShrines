@@ -30,3 +30,62 @@
 *.exe
 *.out
 *.app
+
+
+# Visual Studio Workspace & User Files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio C++ Database & Cache Files
+ipch/
+*.ipch
+*.aps
+*.nc
+*.opendb
+*.db
+*.VC.db
+*.VC.opendb
+*.vsidx
+
+# Build Directories
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Prerequisites[cite: 1]
+*.d
+
+# Compiled Object files[cite: 1]
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers[cite: 1]
+*.gch
+*.pch
+
+# Compiled Dynamic libraries[cite: 1]
+*.so
+*.dylib
+*.dll
+
+# Fortran module files[cite: 1]
+*.mod
+*.smod
+
+# Compiled Static libraries[cite: 1]
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables[cite: 1]
+*.exe
+*.out
+*.app
