@@ -24,7 +24,7 @@ This project hooks two internal Steam-runtime routines:
 
 2. The respawn selection path, where it replaces the result with the locally selected Shrine of Life position.
 
-The selection logic follows the Alpha reversal's local search model: it examines shrine records in the player’s current 256-block cell and its eight neighboring cells, sorts candidates by horizontal distance from the death position, and uses the Alpha ordering rule when multiple candidates are available.
+The selection logic follows the Alpha reversal's logic: it examines shrine records in the player’s current 256-block cell and its eight neighboring cells, sorts candidates by horizontal distance from the death position, and uses the Alpha ordering rule when multiple candidates are available.
 
 ## Requirements
 
