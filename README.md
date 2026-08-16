@@ -2,7 +2,7 @@
 
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=AlphaShrines) ![C++](https://img.shields.io/badge/C%2B%2B-17-00599C?logo=cplusplus&logoColor=white) ![Platform](https://img.shields.io/badge/Platform-Windows%20x64-0078D4?logo=windows&logoColor=white) ![IDE](https://img.shields.io/badge/IDE-Visual%20Studio%202022-5C2D91?logo=visualstudio&logoColor=white) ![Target](https://img.shields.io/badge/Target-Cube%20World%20Steam-1B2838?logo=steam&logoColor=white)
 
-AlphaShrines is a native C++ mod for the Steam release of **Cube World** that restores the Alpha-era Shrine of Life respawn model as closely as possible.
+AlphaShrines is a lightweight C++ mod for the Steam release of **Cube World** designed to recreate the classic Alpha respawn experience as accurately as possible.
 
 In the Steam release, Shrine of Life activation primarily supports fast travel and death can return the player to a previously activated shrine. AlphaShrines changes the respawn selection path so a death is resolved against nearby Shrine of Life spawn records, recreating Cube World's Alpha behavior.
 
