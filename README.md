@@ -10,7 +10,7 @@ This project intentionally changes only death respawn selection. It does not rem
 
 # How It Works
 
-AlphaShrines restores the Alpha-style proximity-based Shrine of Life respawn behavior while preserving the Steam release's existing shrine activation and fast travel systems.
+AlphaShrines restores the Alpha style proximity-based Shrine of Life respawn behavior while preserving the Steam release's existing shrine activation and fast travel systems.
 
 The mod hooks two internal Steam runtime routines:
 
@@ -18,9 +18,9 @@ The mod hooks two internal Steam runtime routines:
 
 2. The respawn selection path, where it replaces the game's selected respawn position with the locally selected Shrine of Life position.
 
-When the player dies, AlphaShrines examines shrine records in the player's current 256-block world cell and its eight neighboring cells, forming a 3 × 3 search area. Candidates are sorted by horizontal distance from the player's death position.
+When the player dies, AlphaShrines examines shrine records in the player's current 256 block world cell and its eight neighboring cells, forming a 3 × 3 search area. Candidates are sorted by horizontal distance from the player's death position.
 
-If multiple candidates are available, the mod follows the Alpha ordering behavior and selects the second-closest shrine. If only one candidate is available, that shrine is used.
+If multiple candidates are available, the mod follows the Alpha ordering behavior and selects the second closest shrine. If only one candidate is available, that shrine is used.
 
 - Restores proximity based Shrine of Life respawn selection.
 - Preserves the Steam release's existing Shrine of Life activation and fast travel behavior.
