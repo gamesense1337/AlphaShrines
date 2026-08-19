@@ -10,7 +10,7 @@ This project intentionally changes only death respawn selection. It does not rem
 
 # How It Works
 
-AlphaShrines restores the Alpha style proximity-based Shrine of Life respawn behavior while preserving the Steam release's existing shrine activation and fast travel systems.
+AlphaShrines restores the Alpha style proximity based Shrine of Life respawn behavior while preserving the Steam release's existing shrine activation and fast travel systems.
 
 The mod hooks two internal Steam runtime routines:
 
