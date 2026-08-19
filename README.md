@@ -8,38 +8,49 @@ In the Steam release, Shrine of Life activation primarily supports fast travel a
 
 This project intentionally changes only death respawn selection. It does not remove, replace, or alter the base game's Shrine of Life activation and fast travel system.
 
-## Features
+# How It Works
 
-- Restores proximity based Shrine of Life respawn selection.
-- Preserves the Steam release's existing Shrine of Life activation and fast travel behavior.
-- Evaluates multiple nearby Shrine of Life candidates and selects the second closest valid shrine.
-- Uses the player's death location to select from shrines in the surrounding 3 x 3 world cell area.
-- Validates the expected Steam executable function prologues before installing any hook.
+AlphaShrines restores the Alpha-style proximity-based Shrine of Life respawn behavior while preserving the Steam release's existing shrine activation and fast travel systems.
 
-## How It Works
-
-This project hooks two internal Steam runtime routines:
+The mod hooks two internal Steam runtime routines:
 
 1. The spawn record insertion path, where it identifies native `0x0C` Shrine of Life records emitted by the shrine generation caller and caches their world positions.
 
-2. The respawn selection path, where it replaces the result with the locally selected Shrine of Life position.
+2. The respawn selection path, where it replaces the game's selected respawn position with the locally selected Shrine of Life position.
 
-The selection logic follows the Alpha reversal's logic: it examines shrine records in the player’s current 256 block cell and its eight neighboring cells, sorts candidates by horizontal distance from the death position, and uses the Alpha ordering rule when multiple candidates are available.
+When the player dies, AlphaShrines examines shrine records in the player's current 256-block world cell and its eight neighboring cells, forming a 3 × 3 search area. Candidates are sorted by horizontal distance from the player's death position.
 
-## Requirements
+If multiple candidates are available, the mod follows the Alpha ordering behavior and selects the second-closest shrine. If only one candidate is available, that shrine is used.
 
-- Cube World Steam release, **64-bit**
-- Cube World Mod Loader
-- Visual Studio 2022 with the **Desktop development with C++** workload (only required to build from source)
+- Restores proximity based Shrine of Life respawn selection.
+- Preserves the Steam release's existing Shrine of Life activation and fast travel behavior.
+- Searches Shrine of Life candidates within the surrounding 3 × 3 world cell area.
+- Sorts nearby candidates by horizontal distance from the player's death position.
+- Selects the second closest shrine when multiple candidates are available.
 
-The project is configured for **Release | x64**. It uses MSVC directly; CMake and Clang are not required.
+# Requirements
 
-## Installation
+For normal installation:
+
+* Cube World Steam release, **64-bit**
+* Cube World Mod Loader
+
+To build AlphaShrines from source:
+
+* Visual Studio 2022
+* **Desktop development with C++** workload
+
+The project is configured for **Release | x64** and builds directly with MSVC. CMake and Clang are not required.
+
+# Installation
 
 1. Install Cube World Mod Loader.
-2. Copy `AlphaShrines.dll` into the loader's `Mods` directory.
-3. Start Cube World.
-4. Confirm the in game chat message: `[AlphaShrines] Alpha logic restored.`
+2. Download the latest `AlphaShrines.dll` release.
+3. Copy `AlphaShrines.dll` into the mod loader's `Mods` directory.
+4. Start Cube World.
+5. Confirm that the following message appears in the in-game chat:
+
+   `[AlphaShrines] Alpha logic restored.`
 
 ## Building From Source
 
