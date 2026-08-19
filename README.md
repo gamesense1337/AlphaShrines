@@ -12,7 +12,7 @@ This project intentionally changes only death respawn selection. It does not rem
 
 - Restores proximity based Shrine of Life respawn selection.
 - Preserves the Steam release's existing Shrine of Life activation and fast travel behavior.
-- Tracks native Shrine of Life spawn records as the world loads instead of relying on fixed map coordinates.
+- Evaluates multiple nearby Shrine of Life candidates and selects the second closest valid shrine.
 - Uses the player's death location to select from shrines in the surrounding 3 x 3 world cell area.
 - Validates the expected Steam executable function prologues before installing any hook.
 
@@ -40,8 +40,6 @@ The project is configured for **Release | x64**. It uses MSVC directly; CMake an
 2. Copy `AlphaShrines.dll` into the loader's `Mods` directory.
 3. Start Cube World.
 4. Confirm the in game chat message: `[AlphaShrines] Alpha logic restored.`
-
-If the game build does not match the validated runtime signatures, AlphaShrines reports that the build was not recognized and does not install its hooks.
 
 ## Building From Source
 
